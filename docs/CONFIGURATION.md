@@ -55,8 +55,6 @@ Restart the app. The left panel shows **🟢 ANTHROPIC_API_KEY detected** and th
 3. Overwrite the line in `.env` (same command as above).
 4. Restart the app.
 
-> ⚠️ `.env` is git-ignored, but **never** paste your key into chat, issues, or
-> source files. If a key ever leaks, revoke it immediately.
 
 ### Which model is used
 
