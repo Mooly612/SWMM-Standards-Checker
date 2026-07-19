@@ -1,0 +1,7 @@
+[client]
+# "minimal" убирает кнопку Deploy и меню «⋮» (Print / Record screen / Made with Streamlit)
+toolbarMode = "minimal"
+showErrorDetails = true
+
+[browser]
+gatherUsageStats = false

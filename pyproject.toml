@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "swmm-compliance"
+version = "0.1.0"
+description = "GB 50014-2021 compliance checker for nl-to-swmm generated models"
+requires-python = ">=3.10"
+dependencies = [
+    "streamlit>=1.30",
+    "anthropic>=0.40",
+]
+
+[project.scripts]
+swmm-compliance = "swmm_compliance.cli:main"
+
+[tool.setuptools]
+packages = ["swmm_compliance"]
+
+[tool.setuptools.package-data]
+swmm_compliance = ["standards/*.json"]

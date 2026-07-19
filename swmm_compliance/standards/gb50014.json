@@ -1,0 +1,83 @@
+{
+  "standard": {
+    "code": "GB 50014-2021",
+    "title_zh": "室外排水设计标准",
+    "title_en": "Standard for Design of Outdoor Wastewater Engineering",
+    "issuer": "住房和城乡建设部 (MOHURD)",
+    "effective_date": "2021-10-01",
+    "snapshot_date": "2026-07-19",
+    "chapter": "4 排水管渠 / 4.2 水力计算",
+    "disclaimer_zh": "本文件为工程预检用的关键参数摘录，不替代正式规范原文。条文编号请以官方 PDF 为准。",
+    "disclaimer_en": "Curated snapshot of key hydraulic thresholds for pre-checking only. Not a substitute for the official text. Verify clause numbers against the official PDF.",
+    "official_sources": [
+      "http://www.jianbiaoku.com/webarbs/book/158183.shtml",
+      "https://ebook.chinabuilding.com.cn/zbooklib/book/detail/show?SiteID=1&bookID=139480"
+    ]
+  },
+  "rules": {
+    "min_diameter": {
+      "clause": "4.2.3",
+      "verify_against_official": true,
+      "unit": "mm",
+      "description_zh": "排水管道最小管径",
+      "description_en": "Minimum pipe diameter by pipe class",
+      "by_class": {
+        "sewage":   { "min_mm": 300, "note": "污水管、合流管道起始最小管径 DN300" },
+        "stormwater": { "min_mm": 300, "note": "雨水管、合流管道最小管径 DN300" },
+        "combined": { "min_mm": 300, "note": "合流管道最小管径 DN300" },
+        "inlet_connection": { "min_mm": 200, "note": "雨水口连接管最小管径 DN200" }
+      }
+    },
+    "min_slope": {
+      "clause": "4.2.3",
+      "verify_against_official": true,
+      "unit": "m/m",
+      "description_zh": "最小设计坡度（与最小管径对应）",
+      "description_en": "Minimum design slope corresponding to minimum diameter",
+      "by_class": {
+        "sewage":     { "plastic": 0.002, "other": 0.003, "note": "DN300：塑料管 0.002，其他管 0.003" },
+        "stormwater": { "plastic": 0.002, "other": 0.003, "note": "DN300：塑料管 0.002，其他管 0.003" },
+        "combined":   { "plastic": 0.002, "other": 0.003, "note": "DN300：塑料管 0.002，其他管 0.003" },
+        "inlet_connection": { "plastic": 0.01, "other": 0.01, "note": "雨水口连接管 0.01" }
+      }
+    },
+    "design_fill_ratio": {
+      "clause": "4.2.1",
+      "verify_against_official": true,
+      "unit": "h/D",
+      "description_zh": "重力流污水管道设计充满度上限（雨水/合流管按满流 h/D=1.0）",
+      "description_en": "Maximum design fill ratio for gravity sewage pipes (storm/combined computed as full flow, h/D=1.0)",
+      "requires_simulation": true,
+      "table_by_diameter": [
+        { "d_min_mm": 200, "d_max_mm": 300,   "max_fill": 0.55 },
+        { "d_min_mm": 350, "d_max_mm": 450,   "max_fill": 0.65 },
+        { "d_min_mm": 500, "d_max_mm": 900,   "max_fill": 0.70 },
+        { "d_min_mm": 1000, "d_max_mm": 999999, "max_fill": 0.75 }
+      ]
+    },
+    "min_velocity": {
+      "clause": "4.2.4",
+      "verify_against_official": true,
+      "unit": "m/s",
+      "description_zh": "最小设计流速（设计充满度/满流时）",
+      "description_en": "Minimum design velocity at design fill / full flow",
+      "by_class": {
+        "sewage":     { "min_mps": 0.6,  "note": "污水管道在设计充满度下 ≥ 0.6 m/s" },
+        "stormwater": { "min_mps": 0.75, "note": "雨水管道及合流管道满流时 ≥ 0.75 m/s" },
+        "combined":   { "min_mps": 0.75, "note": "合流管道满流时 ≥ 0.75 m/s" },
+        "open_channel": { "min_mps": 0.4, "note": "明渠 ≥ 0.4 m/s" }
+      }
+    },
+    "max_velocity": {
+      "clause": "4.2.5",
+      "verify_against_official": true,
+      "unit": "m/s",
+      "description_zh": "最大设计流速（按管材）",
+      "description_en": "Maximum design velocity by pipe material",
+      "by_material": {
+        "metal":     { "max_mps": 10.0, "note": "金属管道 ≤ 10 m/s" },
+        "non_metal": { "max_mps": 5.0,  "note": "非金属管道 ≤ 5 m/s" }
+      }
+    }
+  }
+}
